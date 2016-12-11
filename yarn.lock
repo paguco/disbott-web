@@ -1678,9 +1678,15 @@ domutils@1.1:
   dependencies:
     domelementtype "1"
 
-dotenv:
+dotenv, dotenv@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
+
+dotenv-safe:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv-safe/-/dotenv-safe-3.0.0.tgz#6da9b185929c49f4e540fe6883150dd6c44c446f"
+  dependencies:
+    dotenv "^2.0.0"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
