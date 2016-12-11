@@ -15,7 +15,7 @@ npm run start
 npm run dev
 
 # build for production with minification
-npm run build
+npm run prod
 
 # run unit tests
 npm run unit
