@@ -7,7 +7,7 @@
     </div>
     <div class="dtc v-mid w-25 tr">
       <a class="link dim white dib mr3" href="#" title="Join our server">Join our server</a>
-      <a class="link dim white dib" href="https://github.com/paguco/disbott" title="Github">Github</a>
+      <a class="link dim white dib" href="https://github.com/uchuuio/disbott" title="Github">Github</a>
     </div>
   </nav>
 </template>

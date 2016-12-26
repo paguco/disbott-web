@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <a href="" title="Created by paguco & friends">-paguco-</a>
+    <a href="https://www.uchuu.io" title="Created by uchuu & friends">-uchuu-</a>
   </footer>
 </template>
 

@@ -1,16 +1,18 @@
 <template>
   <div class="hero">
-    <h1>{{name}} <a v-bind:href="version.link" class="version">{{version.name}}</a></h1>
+    <h1 class="di">{{name}}</h1><a v-bind:href="version.link" class="ml1 f4 ml2 version" title="Current Version">{{version.name}}</a>
     <h2>{{tag}}</h2>
     <p class="dev-info">
-      Build: <a href="https://ci.appveyor.com/project/tomopagu/disbott" title="Appveyor Latest Build">{{build}}</a> |
-      Test Coverage: <a href="https://coveralls.io/github/paguco/disbott" title="Coveralls Test Coverage">{{coverage}}%</a>
+      Build: <a href="https://ci.appveyor.com/project/tomopagu/disbott" title="Appveyor Latest Build" class="appveyor-build">{{build}}</a> |
+      Test Coverage: <a href="https://coveralls.io/github/uchuuio/disbott" title="Coveralls Test Coverage" class="coveralls">{{coverage}}%</a>
     </p>
   </div>
 </template>
 
 <script>
 import 'isomorphic-fetch';
+
+require('es6-promise').polyfill();
 
 export default {
   name: 'hero',
@@ -20,7 +22,7 @@ export default {
       tag: 'Discord robot for your server',
       version: {
         name: 'v3',
-        link: 'https://github.com/paguco/disbott',
+        link: 'https://github.com/uchuuio/disbott',
       },
       build: '',
       coverage: '0',
@@ -36,8 +38,7 @@ export default {
   methods: {
     getCurrentVersion() {
       const self = this;
-
-      fetch('https://api.github.com/repos/paguco/disbott/releases') // eslint-disable-line
+      fetch('https://api.github.com/repos/uchuuio/disbott/releases') // eslint-disable-line
         .then((response) => {
           if (response.status >= 400) {
             throw new Error('Bad response from server');
@@ -68,7 +69,6 @@ export default {
     },
     getCurrentCoverage() {
       const self = this;
-
       fetch('/api/coveralls') // eslint-disable-line
         .then((response) => {
           if (response.status >= 400) {
@@ -103,10 +103,6 @@ a:focus {
 h1, h2 {
   font-weight: normal;
   margin: 0;
-}
-
-.version {
-  font-size: 55%;
 }
 
 .dev-info {

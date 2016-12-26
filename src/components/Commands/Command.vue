@@ -1,7 +1,7 @@
 <template>
   <div class="command">
     <p>
-      {{description}}
+      <span class="description">{{description}}</span>
       <code>@disbott {{command}}</code>
     </p>
   </div>
