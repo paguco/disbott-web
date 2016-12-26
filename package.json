@@ -19,6 +19,7 @@
     "es6-promise": "^4.0.5",
     "express": "^4.14.0",
     "isomorphic-fetch": "^2.2.1",
+    "karma-coveralls": "^1.1.2",
     "vue": "^2.1.0"
   },
   "devDependencies": {
