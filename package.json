@@ -4,6 +4,11 @@
   "description": "A Vue.js project",
   "author": "Thomas Moore <tomo@pagu.co>",
   "private": true,
+  "files": [
+    "dist",
+    ".env.example",
+    "server.js"
+  ],
   "scripts": {
     "dev": "node build/dev-server.js",
     "prod": "node build/build.js",
