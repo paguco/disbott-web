@@ -3,7 +3,7 @@ node_js: node
 script:
   - yarn run lint
   - yarn test
-  - npm install -g now
-  - sudo apt-get install -y expect
-  - ./travis-build.exp
-  - yarn run deploy
+  - npm i -g now-pipeline
+  - now-pipeline-prune
+  - now-pipeline
+  - now-pipeline-list
