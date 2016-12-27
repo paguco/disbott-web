@@ -1,0 +1,7 @@
+#!/usr/bin/expect
+
+spawn now secret add APPVEYOR_TOKEN APPVEYOR_TOKEN
+
+expect "Enter your email:" { send "tsanm93@gmail.com\r" }
+
+interact
