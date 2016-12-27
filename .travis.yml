@@ -3,7 +3,6 @@ node_js: node
 script:
   - yarn run lint
   - yarn test
-  - npm i -g now-pipeline
-  - now-pipeline-prune
-  - now-pipeline
-  - now-pipeline-list
+  - npm install -g now
+  - now secret add APPVEYOR_TOKEN APPVEYOR_TOKEN
+  - yarn run deploy
