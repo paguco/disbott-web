@@ -4,5 +4,6 @@ script:
   - yarn run lint
   - yarn test
   - npm install -g now
+  - /usr/bin/expect 'spawn now --login \n send "tsanm93@gmail.com\r"
   - now secret add APPVEYOR_TOKEN APPVEYOR_TOKEN
   - yarn run deploy
