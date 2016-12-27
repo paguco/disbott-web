@@ -9,6 +9,9 @@
     ".env.example",
     "server.js"
   ],
+  "now": {
+    "alias": "disbott.uchuu.io"
+  },
   "scripts": {
     "dev": "node build/dev-server.js",
     "prod": "node build/build.js",
