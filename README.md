@@ -2,6 +2,9 @@
 
 > Website for Disbott
 
+[![Build Status](https://travis-ci.org/uchuuio/disbott-web.svg?branch=master)](https://travis-ci.org/uchuuio/disbott-web)
+[![Coverage Status](https://coveralls.io/repos/github/uchuuio/disbott-web/badge.svg?branch=master)](https://coveralls.io/github/uchuuio/disbott-web?branch=master)
+
 ## Build Setup
 
 ``` bash

@@ -5,5 +5,5 @@ script:
   - yarn test
   - npm i -g now-pipeline
   - now-pipeline-prune
-  - now-pipeline --alias disbott.uchuu.io
+  - now-pipeline
   - now-pipeline-list
