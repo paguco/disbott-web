@@ -9,7 +9,7 @@ app.use(express.static(path.join(`${__dirname}/dist`)));
 
 app.get('/api/appveyor', (req, res) => {
   const appveyorToken = process.env.APPVEYOR_TOKEN;
-  fetch('https://ci.appveyor.com/api/projects/tomopagu/disbott', { // eslint-disable-line
+  fetch('https://ci.appveyor.com/api/projects/uchuu/disbott', { // eslint-disable-line
     headers: {
       Authorization: `Bearer ${appveyorToken}`,
       'Content-Type': 'application/json',

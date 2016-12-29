@@ -39,7 +39,7 @@ describe('Hero.vue', () => {
 
     it('should link to appveyor build page', () => {
       expect(vm.$el.querySelector('.hero .dev-info a.appveyor-build').href)
-        .to.equal('https://ci.appveyor.com/project/tomopagu/disbott');
+        .to.equal('https://ci.appveyor.com/project/uchuu/disbott');
     });
 
     it('should link to coveralls', () => {

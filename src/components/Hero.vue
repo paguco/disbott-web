@@ -3,7 +3,7 @@
     <h1 class="di">{{name}}</h1><a v-bind:href="version.link" class="ml1 f4 ml2 version" title="Current Version">{{version.name}}</a>
     <h2>{{tag}}</h2>
     <p class="dev-info">
-      Build: <a href="https://ci.appveyor.com/project/tomopagu/disbott" title="Appveyor Latest Build" class="appveyor-build">{{build}}</a> |
+      Build: <a href="https://ci.appveyor.com/project/uchuu/disbott" title="Appveyor Latest Build" class="appveyor-build">{{build}}</a> |
       Test Coverage: <a href="https://coveralls.io/github/uchuuio/disbott" title="Coveralls Test Coverage" class="coveralls">{{coverage}}%</a>
     </p>
   </div>
