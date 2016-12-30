@@ -41,8 +41,8 @@
 
     <module name="Twitter">
       <command description="Gets the latest tweet from The Guardian's Twitter Account" command="headline"></command>
-      <command description="Gets the latest tweet from Mirin Furukawa's Twitter Account" command="mirin"></command>
-      <command description="Gets the latest tweet from Nanase Gumi's Twitter Account" command="gumi"></command>
+      <command description="Gets the latest tweet from the specified Twitter Account (No @)" command="tweet {user}"></command>
+      <command description="Gets a random tweet from the specified Twitter Account (No @)" command="random-tweet {user}"></command>
       <command description="NSFW, gets a random image from @idol_gazo Twitter Account" command="gazo"></command>
     </module>
 
