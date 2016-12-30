@@ -27,7 +27,7 @@ app.get('/api/appveyor', (req, res) => {
 });
 
 app.get('/api/coveralls', (req, res) => {
-  fetch('https://coveralls.io/github/paguco/disbott.json') // eslint-disable-line
+  fetch('https://coveralls.io/github/uchuuio/disbott.json') // eslint-disable-line
     .then((response) => {
       if (response.status >= 400) {
         throw new Error('Bad response from server');
