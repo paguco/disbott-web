@@ -1,11 +1,15 @@
 <template>
   <div class="hero">
-    <h1 class="di">{{name}}</h1><a v-bind:href="version.link" class="ml1 f4 ml2 version" title="Current Version">{{version.name}}</a>
-    <h2>{{tag}}</h2>
-    <p class="dev-info">
-      Build: <a href="https://ci.appveyor.com/project/uchuu/disbott" title="Appveyor Latest Build" class="appveyor-build">{{build}}</a> |
-      Test Coverage: <a href="https://coveralls.io/github/uchuuio/disbott" title="Coveralls Test Coverage" class="coveralls">{{coverage}}%</a>
-    </p>
+    <img class="logo" src="./../assets/disbott.png" v-bind:alt="name">
+    <div class="info ml2 mt4">
+      <a v-bind:href="version.link" class="f4 version" title="Current Version">{{version.name}}</a>
+      <h2>{{tag}}</h2>
+      <p class="dev-info">
+        Build: <a href="https://ci.appveyor.com/project/uchuu/disbott" title="Appveyor Latest Build" class="appveyor-build">{{build}}</a> |
+        Test Coverage: <a href="https://coveralls.io/github/uchuuio/disbott" title="Coveralls Test Coverage" class="coveralls">{{coverage}}%</a>
+      </p>
+    </div>
+    <div class="cf"></div>
   </div>
 </template>
 
@@ -18,6 +22,7 @@ export default {
   name: 'hero',
   data() {
     return {
+      imageSrc: '../assets/logo.png',
       name: 'DISBOTT',
       tag: 'Discord robot for your server',
       version: {
@@ -89,7 +94,16 @@ export default {
 .hero {
   background: #FF4C3B;
   color: #FFFCF9;
-  padding: 30px;
+  padding: 15px;
+}
+
+.hero .logo {
+  float: left;
+  width: 300px;
+}
+
+.hero .info {
+  float: left;
 }
 
 a {

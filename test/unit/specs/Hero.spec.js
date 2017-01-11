@@ -16,11 +16,6 @@ describe('Hero.vue', () => {
     }, 1000);
   });
 
-  it('should render correct title', () => {
-    expect(vm.$el.querySelector('.hero h1').textContent)
-      .to.equal('DISBOTT');
-  });
-
   it('should link to current version', () => {
     expect(vm.$el.querySelector('.hero a.version').getAttribute('title'))
       .to.equal('Current Version');
