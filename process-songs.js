@@ -17,6 +17,7 @@ function getRandLocalSong(db) {
       const chosenSong = files[Math.floor(Math.random() * files.length)];
       mm(fs.createReadStream('./songs/' + chosenSong), (err, metadata) => {
         if (err) throw err;
+
         let song = {};
         if (chosenSong === 'bgm.mp3') {
           song = {
@@ -64,21 +65,29 @@ exports.addUrl = function (url, db) {
       const duration = parseInt(mediaInfo.length_seconds, 10);
       const prettyDuration = moment.duration(duration, 'seconds').format('mm:ss');
 
-      const song = {
-        title: mediaInfo.title,
-        description: mediaInfo.description,
-        owner: mediaInfo.author,
-        thumbnailUrl: mediaInfo.thumbnail_url,
-        prettyDuration,
-        views: mediaInfo.view_count,
-        url: `https://www.youtube.com/watch?v=${mediaInfo.video_id}`,
-        audioUrl: bestaudio.url,
-        medium: 'youtube',
-      };
+      db.find({}, (dberr, songs) => {
+        if (dberr) return reject(err);
+        const currentCount = songs.length;
+        const newCount = currentCount + 1;
 
-      db.insert(song, (error, insertedSong) => {
-        if (error) { throw error; }
-        resolve(insertedSong);
+        const song = {
+          title: mediaInfo.title,
+          description: mediaInfo.description,
+          owner: mediaInfo.author,
+          thumbnailUrl: mediaInfo.thumbnail_url,
+          prettyDuration,
+          url: `https://www.youtube.com/watch?v=${mediaInfo.video_id}`,
+          audioUrl: bestaudio.url,
+          order: newCount,
+          medium: 'youtube',
+        };
+
+        db.insert(song, (error, insertedSong) => {
+          if (error) { throw error; }
+          resolve(insertedSong);
+        });
+
+        return true;
       });
 
       return true;

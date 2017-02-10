@@ -53,9 +53,11 @@ app.get('*', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  db.find({}, function (err, songs) {
-    songs.slice(0, 10);
-    socket.emit('joinedSongs', songs);
+  db.find({}, (err, songs) => {
+    const orderedSongs = songs.reverse();
+    orderedSongs.slice(0, 10);
+    orderedSongs.sort((a, b) => a.order - b.order);
+    socket.emit('joinedSongs', orderedSongs);
   });
 
   // Should recieve songs from Disbott & Website
