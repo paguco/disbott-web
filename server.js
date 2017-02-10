@@ -1,10 +1,19 @@
 require('dotenv-safe').load();
 
+const Datastore = require('nedb');
+
+const db = new Datastore({ filename: './db/songs.db', autoload: true });
+
 const path = require('path');
 const express = require('express');
-const fetch = require('isomorphic-fetch');
 
 const app = express();
+const server = require('http').Server(app); //eslint-disable-line
+const io = require('socket.io')(server);
+const fetch = require('isomorphic-fetch');
+
+const processSongs = require('./process-songs');
+
 app.use(express.static(path.join(`${__dirname}/dist`)));
 
 app.get('/api/appveyor', (req, res) => {
@@ -39,8 +48,24 @@ app.get('/api/coveralls', (req, res) => {
     });
 });
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(`${__dirname}/dist/index.html`));
 });
 
-app.listen(3000);
+io.on('connection', (socket) => {
+  db.find({}, function (err, songs) {
+    songs.slice(0, 10);
+    socket.emit('joinedSongs', songs);
+  });
+
+  // Should recieve songs from Disbott & Website
+  socket.on('addSong', (url) => {
+    processSongs.addUrl(url, db)
+      .then((song) => {
+        console.log(song);
+        socket.emit('addedSong', song);
+      });
+  });
+});
+
+server.listen(3000);
